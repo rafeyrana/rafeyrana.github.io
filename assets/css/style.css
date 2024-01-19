@@ -114,8 +114,17 @@ h1, h2, h3, h4, h5, h6 {
   height: 40px;
 }
 
-#header .social-links a:hover {
-  background: #1c7d32;
+
+#header .social-links a.linkedin:hover {
+  color: rgb(101, 192, 231); /* Changes the LinkedIn icon to blue on hover */
+}
+
+#header .social-links a.github:hover {
+  color: rgb(174, 8, 225); /* Changes the GitHub icon to grey on hover */
+}
+
+#header .social-links a.google:hover {
+  color: orange; /* Changes the Gmail icon to orange on hover */
 }
 
 @media (max-width: 992px) {
@@ -1102,3 +1111,4 @@ section .container {
     transform: translateX(-50%);
   }
 }
+ 
