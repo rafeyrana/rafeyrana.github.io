@@ -2,6 +2,17 @@
     font-family: 'Jersey 15', sans-serif;
 }
 
+/* Main container styles */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    padding: 1rem 0;
+}
+
 @keyframes gradient {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
@@ -21,7 +32,7 @@
 }
 
 .typing-container {
-    min-height: 40px;  /* Adjust this value based on your font size */
+    min-height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -38,7 +49,7 @@
 
 .social-icon:hover {
     transform: translateY(-5px);
-    filter: drop-shadow(0 0 10px currentColor);
+    filter: drop-shadow(0 0 15px currentColor);
 }
 
 .nav-box {
@@ -60,4 +71,89 @@
 
 .nav-box:hover::before {
     left: 100%;
-} 
+}
+
+/* Calendar styles */
+.calendar-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+:root {
+    --color-calendar-graph-day-bg: #1a1a1a;
+    --color-calendar-graph-day-L1-bg: #39dd34;
+    --color-calendar-graph-day-L2-bg: #45a045;
+    --color-calendar-graph-day-L3-bg: #047526;
+    --color-calendar-graph-day-L4-bg: #0a4208;
+}
+
+.calendar {
+    font-family: 'Jersey 15', Helvetica, arial;
+    text-align: center;
+    margin: 0 auto;
+    background-color: black;
+    color: #fff;
+    padding: 1rem;
+}
+
+.calendar-graph text.wday,
+.calendar-graph text.month {
+    font-size: 12px;
+    fill: #fff;
+}
+
+text.ContributionCalendar-label {
+    fill: #fff;
+    font-size: 12px;
+}
+
+.ContributionCalendar-day {
+    shape-rendering: geometricPrecision;
+    outline: 1px solid rgba(255, 255, 255, 0.05);
+    outline-offset: -1px;
+}
+
+@media screen and (max-width: 768px) {
+    .calendar-container {
+        max-width: 100%;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    .calendar {
+        padding: 0.5rem;
+    }
+
+    table.ContributionCalendar-grid td {
+        padding: 2px;
+    }
+
+    .calendar-graph text.wday,
+    .calendar-graph text.month {
+        font-size: 8px;
+    }
+
+    text.ContributionCalendar-label {
+        font-size: 8px;
+    }
+
+    .ContributionCalendar {
+        max-width: 100vw;
+        overflow-x: auto;
+    }
+
+    .js-calendar-graph {
+        padding: 10px 0;
+    }
+
+    .contrib-column {
+        padding: 8px 0;
+        font-size: 10px;
+    }
+
+    .contrib-number {
+        font-size: 16px;
+    }
+}

@@ -7,38 +7,50 @@
     <link rel="icon" type="image/png" href="nyc favicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jersey+15&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-black min-h-screen flex items-center justify-center">
-    <div class="text-center text-white font-jersey" style="transform: translateY(-25%);">
-        <h1 class="text-5xl mb-6 gradient-text">RAFEY RANA</h1>
-        <div class="typing-container">
-            <p class="text-3xl text-green-500"><span class="typing"></span></p>
-        </div>
-        
-        <div class="flex space-x-8 justify-center mb-10 mt-10">
-            <a href="https://linkedin.com/in/rafeyrana" target="_blank" rel="noopener noreferrer" class="text-white hover:text-blue-400 transition-colors">
-                <i class="fab fa-linkedin text-4xl social-icon"></i>
-            </a>
-            <a href="https://github.com/rafeyrana" target="_blank" rel="noopener noreferrer" class="text-white hover:text-purple-400 transition-colors">
-                <i class="fab fa-github text-4xl social-icon"></i>
-            </a>
-            <a href="mailto:rafeyrana@gmail.com" class="text-white hover:text-orange-400 transition-colors">
-                <i class="fas fa-envelope text-4xl social-icon"></i>
-            </a>
-        </div>
+<body class="bg-black">
+    <div class="main-container">
+        <div class="text-center text-white font-jersey">
+            <h1 class="text-7xl mb-8 gradient-text">RAFEY RANA</h1>
+            <div class="typing-container mb-12">
+                <p class="text-4xl text-green-500"><span class="typing"></span></p>
+            </div>
+            
+            <div class="flex space-x-12 justify-center mb-12">
+                <a href="https://linkedin.com/in/rafeyrana" target="_blank" rel="noopener noreferrer" class="text-white hover:text-blue-400 transition-colors">
+                    <i class="fab fa-linkedin text-5xl social-icon"></i>
+                </a>
+                <a href="https://github.com/rafeyrana" target="_blank" rel="noopener noreferrer" class="text-white hover:text-purple-400 transition-colors">
+                    <i class="fab fa-github text-5xl social-icon"></i>
+                </a>
+                <a href="mailto:rafeyrana@gmail.com" class="text-white hover:text-orange-400 transition-colors">
+                    <i class="fas fa-envelope text-5xl social-icon"></i>
+                </a>
+            </div>
 
-        <div class="nav-box border-2 border-white hover:border-green-400 px-8 py-3 inline-block">
-            <a href="#projects" class="text-2xl text-white hover:text-green-400 transition-colors">Projects</a>
-            <span class="mx-3 text-2xl">|</span>
-            <a href="#interests" class="text-2xl text-white hover:text-green-400 transition-colors">Interests</a>
+            <div class="nav-box border border-3 border-white hover:border-green-400 px-10 py-4 inline-block mb-12">
+                <a href="#projects" class="text-3xl text-white hover:text-green-400 transition-colors">Projects</a>
+                <span class="mx-4 text-3xl">|</span>
+                <a href="#interests" class="text-3xl text-white hover:text-green-400 transition-colors">Interests</a>
+            </div>
+
+            <div class="calendar-container">
+                <h2 class="text-3xl text-white mb-4">Contribution Chart</h2>
+                <div class="calendar"></div>
+            </div>
         </div>
     </div>
 
+    <script>
+        GitHubCalendar(".calendar", "rafeyrana", { responsive: true });
+    </script>
     <script src="scripts.js"></script>
 </body>
 </html>
