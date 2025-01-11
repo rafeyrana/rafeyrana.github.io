@@ -35,16 +35,68 @@
                 </a>
             </div>
 
-            <div class="nav-box border border-3 border-white hover:border-green-400 px-10 py-4 inline-block mb-12">
+            <div class="nav-box hover:border-green-400 px-10 py-4 inline-block mb-12">
                 <a href="#projects" class="text-3xl text-white hover:text-green-400 transition-colors">Projects</a>
                 <span class="mx-4 text-3xl">|</span>
                 <a href="#interests" class="text-3xl text-white hover:text-green-400 transition-colors">Interests</a>
             </div>
 
             <div class="calendar-container">
-                <h2 class="text-3xl text-white mb-4">Contribution Chart</h2>
+                <h2 class="text-3xl text-white mb-4">Contributions Chart</h2>
                 <div class="calendar"></div>
             </div>
+
+            <section id="projects" class="projects-container mt-16">
+                <h2 class="text-4xl text-white mb-8 gradient-text">Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-container">
+                        <div class="project-image-container">
+                            <img src="images/gpt2.png" alt="Project 1" class="project-image">
+                        </div>
+                        <div class="project-content">
+                            <div class="project-header">
+                                <h3 class="project-title">GPT-2 : Implementated from scratch in PyTorch</h3>
+                                <a href="https://github.com/rafeyrana/GPT-2" target="_blank" rel="noopener noreferrer" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                            <p class="project-description">Recreating the GPT-2 Model (originally in TensorFlow) in PyTorch
+                            Implementation of GPT-2 in PyTorch (Originally in TensorFlow) is based on the original paper "Language Models are Unsupervised Multitask Learners" by Radford et al. (2019). Implemented the decoder only model with 124M parameters with advanced optimizations like Flash Attention, Cosine decay learning rate scheduling, gradient accumulation and distrbuted training across 8 GPUs</p>
+                        </div>
+                    </div>
+                    <div class="project-container">
+                      <div class="project-image-container">
+                          <img src="images/dcas.png" alt="Project 1" class="project-image">
+                      </div>
+                      <div class="project-content">
+                          <div class="project-header">
+                              <h3 class="project-title">DCAS : Distributed Content Addressable Storage in Golang</h3>
+                              <a href="https://github.com/rafeyrana/Distributed-CAS" target="_blank" rel="noopener noreferrer" class="project-link">
+                                  <i class="fab fa-github"></i>
+                              </a>
+                          </div>
+                          <p class="project-description">Distributed content addressable storage (CAS) system implemented in Go, designed for peer-to-peer networks. Implemented TCP communication, distributed key value store with multiple peer replication, consisted hashing, data encryption with GET and PUT operations.</p>
+                      </div>
+                  </div><div class="project-container">
+                    <div class="project-image-container">
+                        <img src="images/ai-car-simulation.png" alt="Project 1" class="project-image">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3 class="project-title">F1 Car Self Driving Simulation Using NEAT Genetic Algorithm</h3>
+                            <a href="https://github.com/rafeyrana/AI-Car-Simulation" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                        <p class="project-description">I can't drive an F1 car (yet), but I can teach it to drive and simulate it using genetic NEAT algorithm for reinforcement learning. A neural network is used to control the car's movements by processing sensor data and determining actions like turning or adjusting speed. A fitness function evaluates each car based on distance traveled and survival time. The model has been trained and tested on multiple handdrawn maps.</p>
+                    </div>
+                </div>
+                
+                    <!-- Project 3 -->
+                    
+                </div>
+            </section>
+            
         </div>
     </div>
 
