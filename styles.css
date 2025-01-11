@@ -1,3 +1,23 @@
+html {
+    scroll-behavior: smooth;
+    cursor: default;
+}
+
+@keyframes pulsate {
+    0% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 0px #4ADE80);
+    }
+    50% {
+        transform: scale(1.2);
+        filter: drop-shadow(0 0 8px #4ADE80);
+    }
+    100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 0px #4ADE80);
+    }
+}
+
 .font-jersey {
     font-family: 'Jersey 15', sans-serif;
 }
@@ -182,11 +202,13 @@ text.ContributionCalendar-label {
     overflow: hidden;
     transition: transform 0.3s ease, border-color 0.3s ease;
     height: 100%;
+    cursor: pointer;
 }
 
 .project-container:hover {
     transform: translateY(-5px);
     border-color: #4ADE80;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%234ADE80"><path d="M15 3l2.3 2.3-2.89 2.87 1.42 1.42L18.7 6.7 21 9V3z"/><path d="M3 9l2.3-2.3 2.87 2.89 1.42-1.42L6.7 5.3 9 3H3z"/><path d="M9 21l-2.3-2.3 2.89-2.87-1.42-1.42L5.3 17.3 3 15v6z"/><path d="M21 15l-2.3 2.3-2.87-2.89-1.42 1.42 2.89 2.87L15 21h6z"/></svg>') 12 12, auto;
 }
 
 .project-image-container {
@@ -228,6 +250,7 @@ text.ContributionCalendar-label {
     color: white;
     font-size: 1.25rem;
     transition: color 0.3s ease;
+    cursor: pointer;
 }
 
 .project-link:hover {
@@ -265,5 +288,132 @@ text.ContributionCalendar-label {
 
     .project-description {
         font-size: 0.9rem;
+    }
+}
+
+.project-container:hover .project-link i {
+    animation: pulsate 1s ease-in-out infinite;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.modal.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+}
+
+.modal-content {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    padding: 2rem;
+    transform: scale(0.7);
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.modal.show .modal-content {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.close-button {
+    position: absolute;
+    top: 0.3rem;
+    right: 1rem;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    z-index: 1;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.close-button:hover {
+    color: #4ADE80;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.modal-image-container {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.modal-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.modal-text {
+    color: white;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #4ADE80;
+}
+
+.modal-description {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    color: #d1d1d1;
+}
+
+.modal-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    background: rgba(74, 222, 128, 0.2);
+    border: 1px solid #4ADE80;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.modal-link:hover {
+    background: rgba(74, 222, 128, 0.3);
+    transform: translateY(-2px);
+}
+
+@media screen and (max-width: 768px) {
+    .modal-content {
+        padding: 1rem;
+    }
+    
+    .modal-title {
+        font-size: 1.25rem;
     }
 }
