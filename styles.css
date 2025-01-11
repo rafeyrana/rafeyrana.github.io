@@ -102,6 +102,32 @@ html {
     padding: 0 1rem;
 }
 
+.calendar-wrapper {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 1.5rem;
+    overflow-x: auto;
+}
+
+.github-chart {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+    .calendar-container {
+        max-width: 100%;
+        padding: 0 0.5rem;
+    }
+
+    .calendar-wrapper {
+        padding: 0.75rem;
+    }
+}
+
 :root {
     --color-calendar-graph-day-bg: #1a1a1a;
     --color-calendar-graph-day-L1-bg: #39dd34;
