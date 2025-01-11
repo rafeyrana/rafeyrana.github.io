@@ -1,3 +1,34 @@
+// Theme Switch
+const themeSwitch = document.getElementById('checkbox');
+
+// Check for saved theme preference, otherwise use device preference
+const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+const currentTheme = localStorage.getItem('theme');
+
+if (currentTheme === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+    themeSwitch.checked = true;
+} else if (currentTheme === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    themeSwitch.checked = false;
+} else {
+    // If no saved preference, use device preference
+    if (!prefersDarkScheme.matches) {
+        document.documentElement.setAttribute('data-theme', 'light');
+        themeSwitch.checked = true;
+    }
+}
+
+themeSwitch.addEventListener('change', function() {
+    if (this.checked) {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+    } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+    }
+});
+
 // Typing animation
 document.addEventListener('DOMContentLoaded', function() {
     var typed = new Typed('.typing', {

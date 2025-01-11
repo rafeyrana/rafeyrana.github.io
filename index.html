@@ -13,126 +13,44 @@
     <link href="https://fonts.googleapis.com/css2?family=Jersey+15&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-black">
+<body>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+            </div>
+        </label>
+    </div>
     <div class="main-container">
-        <div class="text-center text-white font-jersey">
+        <div class="text-center font-jersey">
             <h1 class="text-7xl mb-8 gradient-text">RAFEY RANA</h1>
             <div class="typing-container mb-12">
                 <p class="text-4xl text-green-500"><span class="typing"></span></p>
             </div>
-            
             <div class="flex space-x-12 justify-center mb-12">
-                <a href="https://linkedin.com/in/rafeyrana" target="_blank" rel="noopener noreferrer" class="text-white hover:text-blue-400 transition-colors">
+                <a href="https://linkedin.com/in/rafeyrana" target="_blank" rel="noopener noreferrer" class="social-link">
                     <i class="fab fa-linkedin text-5xl social-icon"></i>
                 </a>
-                <a href="https://github.com/rafeyrana" target="_blank" rel="noopener noreferrer" class="text-white hover:text-purple-400 transition-colors">
+                <a href="https://github.com/rafeyrana" target="_blank" rel="noopener noreferrer" class="social-link">
                     <i class="fab fa-github text-5xl social-icon"></i>
                 </a>
-                <a href="mailto:rafeyrana@gmail.com" class="text-white hover:text-orange-400 transition-colors">
+                <a href="mailto:rafeyranaj@gmail.com?subject=Hi Rafey, I'm reaching out from your website" target="_blank" rel="noopener noreferrer" class="social-link">
                     <i class="fas fa-envelope text-5xl social-icon"></i>
                 </a>
             </div>
 
-            <div class="nav-box hover:border-green-400 px-10 py-4 inline-block mb-12">
-                <a href="#projects" class="text-3xl text-white hover:text-green-400 transition-colors">Projects</a>
+            <div class="nav-box border border-3 hover:border-green-400 px-10 py-4 inline-block mb-12">
+                <a href="projects.html" class="text-3xl hover:text-green-400 transition-colors">Projects</a>
             </div>
 
             <div class="calendar-container mb-32">
-                <h2 class="text-3xl text-white mb-4">Real Time Contributions Chart</h2>
+                <h2 class="text-3xl mb-4">Real Time Contributions Chart</h2>
                 <div class="calendar-wrapper">
-                    <img src="https://ghchart.rshah.org/0a4208/rafeyrana" alt="Rafey Rana's Github Contribution Chart" class="github-chart"/>
+                    <img src="https://ghchart.rshah.org/2E8B57/rafeyrana" alt="Rafey Rana's Github Contribution Chart" class="github-chart"/>
                 </div>
             </div>
-
-            <section id="projects" class="projects-container mt-32">
-                <h2 class="text-5xl text-white mb-8 gradient-text">Projects</h2>
-                <div class="projects-grid">
-                    <!-- GPT2 -->
-                    <div class="project-container" onclick="openModal(this)">
-                        <div class="project-image-container">
-                            <img src="images/gpt2.png" alt="Project 1" class="project-image">
-                        </div>
-                        <div class="project-content">
-                            <div class="project-header">
-                                <h3 class="project-title">GPT-2 : Implementated from scratch in PyTorch</h3>
-                                <a href="https://github.com/rafeyrana/GPT-2" target="_blank" rel="noopener noreferrer" class="project-link" onclick="event.stopPropagation()">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                            <p class="project-description">Recreating the GPT-2 Model (originally in TensorFlow) in PyTorch
-                            Implementation of GPT-2 in PyTorch (Originally in TensorFlow) is based on the original paper "Language Models are Unsupervised Multitask Learners" by Radford et al. (2019). Implemented the decoder only model with 124M parameters with advanced optimizations like Flash Attention, Cosine decay learning rate scheduling, gradient accumulation and distrbuted training across 8 GPUs</p>
-                        </div>
-                    </div>
-                    <!-- DCAS -->
-                    <div class="project-container" onclick="openModal(this)">
-                        <div class="project-image-container">
-                            <img src="images/dcas.png" alt="Project 2" class="project-image">
-                        </div>
-                        <div class="project-content">
-                            <div class="project-header">
-                                <h3 class="project-title">DCAS : Distributed Content Addressable Storage in Golang</h3>
-                                <a href="https://github.com/rafeyrana/Distributed-CAS" target="_blank" rel="noopener noreferrer" class="project-link" onclick="event.stopPropagation()">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                            <p class="project-description">Distributed content addressable storage (CAS) system implemented in Go, designed for peer-to-peer networks. Implemented TCP communication, distributed key value store with multiple peer replication, consisted hashing, data encryption with GET and PUT operations.</p>
-                        </div>
-                    </div>
-                    <!-- AI Car Simulation -->
-                    <div class="project-container" onclick="openModal(this)">
-                        <div class="project-image-container">
-                            <img src="images/ai-car-simulation.png" alt="Project 3" class="project-image">
-                        </div>
-                        <div class="project-content">
-                            <div class="project-header">
-                                <h3 class="project-title">F1 Car Self Driving Simulation Using NEAT Genetic Algorithm</h3>
-                                <a href="https://github.com/rafeyrana/AI-Car-Simulation" target="_blank" rel="noopener noreferrer" class="project-link" onclick="event.stopPropagation()">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                            <p class="project-description">I can't drive an F1 car (yet), but I can teach it to drive and simulate it using genetic NEAT algorithm for reinforcement learning. A neural network is used to control the car's movements by processing sensor data and determining actions like turning or adjusting speed. A fitness function evaluates each car based on distance traveled and survival time. The model has been trained and tested on multiple handdrawn maps.</p>
-                        </div>
-                    </div>
-
-                    <div class="project-container" onclick="openModal(this)">
-                        <div class="project-image-container">
-                            <img src="images/flow.png" alt="Project 4" class="project-image">
-                        </div>
-                        <div class="project-content">
-                            <div class="project-header">
-                                <h3 class="project-title">LLM Agentic Workflow Automations using CrewAI</h3>
-                                <a href="https://github.com/rafeyrana/LLM-Agent-Workflows" target="_blank" rel="noopener noreferrer" class="project-link" onclick="event.stopPropagation()">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                            <p class="project-description">Developed multiple agentic workflows using CrewAI for the following usecases:</p>
-                            <ul style="list-style-type: disc; margin-left: 20px; color: #d1d1d1; font-size: 0.9rem; line-height: 1.5; text-align: left; font-weight: 300;">
-                                <li style="margin-bottom: 8px;">Customer Support Data Analysis Agent: Multiple agents controlled by a single CrewAI orchestrator. Real time agent training and RLHF for increasing Task accuracy.</li>
-                                <li style="margin-bottom: 8px;">Sales Pipeline Automation: Single Agent with multiple tools (load from Google Sheets > Evaluate and Score Leads > Personalised Emails for Hot Leads) to automate the sales pipeline.</li>
-                                <li>Project Management Agent: project planning, cost and time estimation and role based task allocation.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Modal -->
-            <div id="projectModal" class="modal">
-                <div class="modal-content">
-                    <span class="close-button" onclick="closeModal()">&times;</span>
-                    <div class="modal-image-container">
-                        <img src="" alt="Project" class="modal-image">
-                    </div>
-                    <div class="modal-text">
-                        <h3 class="modal-title"></h3>
-                        <div class="modal-description"></div>
-                        <a href="" target="_blank" rel="noopener noreferrer" class="modal-link">
-                            <i class="fab fa-github"></i> View on GitHub
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
         </div>
     </div>
 

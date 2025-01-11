@@ -1,6 +1,103 @@
+:root {
+    /* Dark theme colors (default) */
+    --background: black;
+    --text: white;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --text-secondary: #d1d1d1;
+    --modal-backdrop: rgba(0, 0, 0, 0.9);
+    --modal-bg: rgba(255, 255, 255, 0.1);
+    --accent: #4ADE80;
+}
+
+[data-theme="light"] {
+    --background: white;
+    --text: black;
+    --card-bg: rgba(0, 0, 0, 0.05);
+    --card-border: rgba(0, 0, 0, 0.1);
+    --text-secondary: #333333;
+    --modal-backdrop: rgba(255, 255, 255, 0.9);
+    --modal-bg: rgba(0, 0, 0, 0.1);
+}
+
 html {
     scroll-behavior: smooth;
     cursor: default;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Theme Switch Styles */
+.theme-switch-wrapper {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 100;
+}
+
+.theme-switch {
+    display: inline-block;
+    height: 34px;
+    position: relative;
+    width: 60px;
+}
+
+.theme-switch input {
+    display: none;
+}
+
+.slider {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+    border-radius: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6px;
+}
+
+.slider:before {
+    background-color: #4ADE80;
+    bottom: 3px;
+    content: "";
+    height: 26px;
+    left: 4px;
+    position: absolute;
+    transition: .4s;
+    width: 26px;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.slider .fa-sun,
+.slider .fa-moon {
+    color: var(--text);
+    font-size: 14px;
+    z-index: 1;
+}
+
+/* Move toggle to right for light mode */
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* In dark mode (default/unchecked), show sun icon on right */
+.slider .fa-moon {
+    order: 1;
+}
+.slider .fa-sun {
+    order: 2;
 }
 
 @keyframes pulsate {
@@ -41,7 +138,7 @@ html {
 }
 
 .gradient-text {
-    background: linear-gradient(90deg, #fff, #4ADE80, #fff);
+    background: linear-gradient(90deg, var(--text), #4ADE80, var(--text));
     background-size: 200% auto;
     color: transparent;
     -webkit-background-clip: text;
@@ -103,8 +200,8 @@ html {
 }
 
 .calendar-wrapper {
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
     border-radius: 8px;
     padding: 1.5rem;
     overflow-x: auto;
@@ -126,14 +223,6 @@ html {
     .calendar-wrapper {
         padding: 0.75rem;
     }
-}
-
-:root {
-    --color-calendar-graph-day-bg: #1a1a1a;
-    --color-calendar-graph-day-L1-bg: #39dd34;
-    --color-calendar-graph-day-L2-bg: #45a045;
-    --color-calendar-graph-day-L3-bg: #047526;
-    --color-calendar-graph-day-L4-bg: #0a4208;
 }
 
 .calendar {
@@ -222,8 +311,8 @@ text.ContributionCalendar-label {
 .project-container {
     display: flex;
     flex-direction: column;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
     border-radius: 8px;
     overflow: hidden;
     transition: transform 0.3s ease, border-color 0.3s ease;
@@ -267,13 +356,13 @@ text.ContributionCalendar-label {
 }
 
 .project-title {
-    color: white;
+    color: var(--text);
     font-size: 1.25rem;
     font-weight: bold;
 }
 
 .project-link {
-    color: white;
+    color: var(--text);
     font-size: 1.25rem;
     transition: color 0.3s ease;
     cursor: pointer;
@@ -284,7 +373,7 @@ text.ContributionCalendar-label {
 }
 
 .project-description {
-    color: #d1d1d1;
+    color: var(--text-secondary);
     line-height: 1.5;
     font-size: 0.9rem;
 }
@@ -298,6 +387,11 @@ text.ContributionCalendar-label {
 @media screen and (max-width: 768px) {
     .projects-grid {
         grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+
+    .project-container {
+        margin: 0 1rem;
     }
 
     .project-image-container {
@@ -305,15 +399,26 @@ text.ContributionCalendar-label {
     }
 
     .project-content {
-        padding: 1rem;
+        padding: 1.5rem;
     }
 
     .project-title {
-        font-size: 1.25rem;
+        font-size: 1.5625rem;
     }
 
     .project-description {
-        font-size: 0.9rem;
+        font-size: 1.125rem;
+        line-height: 1.6;
+    }
+
+    .project-list li {
+        font-size: 1.125rem;
+        line-height: 1.6;
+        margin-bottom: 0.75rem;
+    }
+
+    .project-link {
+        font-size: 1.5625rem;
     }
 }
 
@@ -329,7 +434,7 @@ text.ContributionCalendar-label {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: var(--modal-backdrop);
     z-index: 1000;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
@@ -343,9 +448,9 @@ text.ContributionCalendar-label {
 }
 
 .modal-content {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--modal-bg);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--card-border);
     border-radius: 12px;
     width: 90%;
     max-width: 800px;
@@ -368,7 +473,7 @@ text.ContributionCalendar-label {
     top: 0.3rem;
     right: 1rem;
     font-size: 2rem;
-    color: white;
+    color: var(--text);
     cursor: pointer;
     transition: color 0.3s ease;
     z-index: 1;
@@ -400,7 +505,7 @@ text.ContributionCalendar-label {
 }
 
 .modal-text {
-    color: white;
+    color: var(--text);
 }
 
 .modal-title {
@@ -412,7 +517,7 @@ text.ContributionCalendar-label {
 .modal-description {
     margin-bottom: 1.5rem;
     line-height: 1.6;
-    color: #d1d1d1;
+    color: var(--text-secondary);
 }
 
 .modal-link {
@@ -442,4 +547,67 @@ text.ContributionCalendar-label {
     .modal-title {
         font-size: 1.25rem;
     }
+}
+
+.social-link {
+    color: var(--text);
+    transition: color 0.3s ease;
+}
+
+.social-link:hover i.fa-linkedin {
+    color: #0077b5;
+}
+
+.social-link:hover i.fa-github {
+    color: #6e5494;
+}
+
+.social-link:hover i.fa-envelope {
+    color: #ff9800;
+}
+
+.back-button {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 100;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    transform: translateX(-5px);
+    border-color: #4ADE80;
+}
+
+.project-list {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+    margin-top: 0.5rem;
+    text-align: left;
+}
+
+.project-list li {
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.project-container {
+    min-height: 400px;
 }
